@@ -738,7 +738,7 @@ function highlightOccurrence(lineNumber, symbolId) {
     sourceDocument.location.hash = lineNumberId;
 
     var lineNumberSpan = sourceDocument.getElementById(lineNumberId);
-    lineNumberSpan.style.background = "lime";
+    lineNumberSpan.style.background = "#AAA";
     sourceDocument.currentLine = lineNumberSpan;
 
     // there are two kinds of links in the document page:
@@ -750,7 +750,8 @@ function highlightOccurrence(lineNumber, symbolId) {
         var link = sourceDocument.links[i];
         var target = link.hash.substring(1);
         if (target == symbolId) {
-            link.style.background = "yellow";
+            link.style.background = "#0E4583";
+            link.style.color = "#DCDCDC";
         }
         else if (link !== lineNumberSpan) {
             link.style.background = "transparent";
@@ -784,7 +785,8 @@ function t(sender) {
 
     elements = document.getElementsByClassName(currentSelection);
     for (var i = 0; i < elements.length; i++) {
-        elements[i].style.background = "cyan";
+        elements[i].style.background = "#0E4583";
+        elements[i].style.color = "#DCDCDC";
     }
 
     var def = document.getElementById(currentSelection.replace(" r", " rd"));
