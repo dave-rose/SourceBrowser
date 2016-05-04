@@ -115,7 +115,7 @@ namespace Microsoft.SourceBrowser.HtmlGenerator
                 var documents = Project.Documents.Where(IncludeDocument).ToList();
 
                 var generationTasks = Partitioner.Create(documents)
-                    .GetPartitions(Environment.ProcessorCount)
+					.GetPartitions(1)//Environment.ProcessorCount
                     .Select(partition =>
                         Task.Run(async () =>
                         {
@@ -180,8 +180,7 @@ namespace Microsoft.SourceBrowser.HtmlGenerator
 
         private Task GenerateDocument(Document document)
         {
-            try
-            {
+            try {
                 var documentGenerator = new DocumentGenerator(this, document);
                 return documentGenerator.Generate();
             }
