@@ -40,6 +40,7 @@ namespace Microsoft.SourceBrowser.Common
             {
                 throw new ArgumentException(String.Format( "Path '{0}' is not absolute.", path));
             }
+
             return path;
         }
     }
